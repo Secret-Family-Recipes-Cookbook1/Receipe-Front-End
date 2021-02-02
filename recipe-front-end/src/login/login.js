@@ -1,8 +1,7 @@
 import React from "react";
 import  './login.css'
 import logo from '../logo.svg';
-import Signup from '../signup/signup'
-import { Router, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Form,  FormGroup, Label, Input, Button   } from 'reactstrap';
 
 
@@ -39,11 +38,11 @@ export default function Login() {
                         onSubmit={submit} >
 
                         <FormGroup>
-                            <Label>username</Label>
+                            <Label>Email</Label>
                             <Input
-                                name='name'
-                                type='text'
-                                class="form-control"
+                                name='email'
+                                type='email'
+                                className="form-control-login"
                                 placeholder='enter email'
                                 maxLength='35'
                             />
@@ -54,7 +53,7 @@ export default function Login() {
                             <Input
                                 name='password'
                                 type='password'
-                                class="form-control"
+                                className="form-control-login"
                                 placeholder='enter password'
                             />
                         </FormGroup>
@@ -81,14 +80,12 @@ export default function Login() {
                     <div className="horizontal-login-bottom-components">
                        <p> Dont have an account yet?</p>
                        <Link to="/signup"><p className= "sign-up-text"> Join RecipeCookbook</p></Link>
+                       
                      </div>
                 </div>
             </div>
     
-        <Switch>
-          <Route exact path="/signup" ><Signup/></Route>
-          <Route path="/login" ><Login/></Route>
-        </Switch>
+     
 
         </div>
        
