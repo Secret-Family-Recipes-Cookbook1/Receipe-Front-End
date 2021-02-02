@@ -18,8 +18,10 @@
 }
 
 .logo-img{
-    width: 15%;
-    height: 10%;
+    width: 8%;
+    height: 8%;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .logo-name{

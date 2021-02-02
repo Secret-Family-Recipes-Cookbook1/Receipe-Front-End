@@ -1,6 +1,5 @@
 import React from "react";
 import  './signup.css'
-import logo from '../logo.svg';
 import { Link } from "react-router-dom";
 import { Form,  FormGroup, Label, Input, Button   } from 'reactstrap';
 
@@ -20,7 +19,7 @@ const submit = event => {
       <div className="login-form-container">
           <div className="login-title-form-container">
               <img className="logo-img"
-                  src={logo}
+                  src="https://raw.githubusercontent.com/Secret-Family-Recipes-Cookbook1/Front-End/main/sec-family-rec-book/src/images/recipe.jpg"
               ></img>
               <h1 className="logo-name"> RecipeCookbook</h1>
           </div>
