@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './login/login';
+import Dashboard from './dashboard/dashboard';
 import Signup from './signup/signup'
 import Navbar from './navigation/navbar'
 import reportWebVitals from './reportWebVitals';
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Switch>
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login" component={Login} />
+        <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
     </Router> 
   </React.StrictMode>,
