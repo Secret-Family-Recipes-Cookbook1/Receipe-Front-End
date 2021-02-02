@@ -1,15 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import  './signup.css'
 import { Link } from "react-router-dom";
 import { Form,  FormGroup, Label, Input, Button   } from 'reactstrap';
+import * as yup from 'yup';
+import schema from '../validation/signupValidation'
 
 export default function Signup() {
-  const change = event => {
-  }
 
-const submit = event => {
-  event.preventDefault()
-  }
+
+    const [signupFormState , setsignupFormState] = useState({
+        firstname: '', 
+        lastname: '', 
+        email: '', 
+        password: '', 
+        terms: false,
+     })
+
+   const [errors, setErrors] = useState({firstname: '', lastname: '', password: '', terms: ''})
+   const [disabled, setDisabled] = useState(true)  
+
+   const setFormErrors = (name, value) => {
+    yup.reach(schema, name).validate(value)
+    .then( () => setErrors({...errors, [name]: ''}))
+    .catch(err => setErrors({...errors, [name]: err.errors[0]}))
+    }
+
+     
+    const change = event => {
+        const { checked, value, name, type } = event.target
+        const valueChecked = type === 'checkbox'  ? checked : value
+        setFormErrors(name, valueChecked)
+        setsignupFormState({...signupFormState, [name]: valueChecked})
+    }
+
+    const submit = event => {
+        event.preventDefault()
+    }
+
+    useEffect( () => {
+        schema.isValid(signupFormState).then(valid => setDisabled(!valid))
+    }, [signupFormState])
     return (
       <div className="login-container">
       <img className="header-img"
@@ -36,22 +66,34 @@ const submit = event => {
                   <FormGroup>
                       <Label>First name</Label>
                       <Input
-                          name='name'
+                          name='firstname'
                           type='text'
+                          onChange={change}
+                          value={signupFormState.firstname}
                           className="form-control-signup"
                           placeholder='enter email'
                           maxLength='35'
                       />
+                      <div className='error-msg' style={{ color: 'red' }}>
+                                <div>{errors.firstname}</div>
+                            </div>
                   </FormGroup>
+
                   <div className = "space-div"></div>
+                  
                   <FormGroup>
                       <Label>Last name</Label>
                       <Input
-                          name='name'
+                          name='lastname'
                           type='text'
+                          onChange={change}
+                          value={signupFormState.lastname}
                           className="form-control-signup"
                           placeholder='enter password'
                       />
+                      <div className='error-msg' style={{ color: 'red' }}>
+                                <div>{errors.lastname}</div>
+                            </div>
                   </FormGroup>
                   </div>
 
@@ -63,10 +105,15 @@ const submit = event => {
                       <Input
                           name='email'
                           type='email'
+                          onChange={change}
+                          value={signupFormState.email}
                           className="form-control-signup"
                           placeholder='enter email'
                           maxLength='35'
                       />
+                      <div className='error-msg' style={{ color: 'red' }}>
+                                <div>{errors.email}</div>
+                            </div>
                   </FormGroup>
                   <div className = "space-div"></div>
                   <FormGroup>
@@ -74,9 +121,14 @@ const submit = event => {
                       <Input
                           name='password'
                           type='password'
+                          onChange={change}
+                          value={signupFormState.password}
                           className="form-control-signup"
                           placeholder='enter password'
                       />
+                      <div className='error-msg' style={{ color: 'red' }}>
+                                <div>{errors.password}</div>
+                            </div>
                   </FormGroup>
                   </div>     
 
@@ -86,16 +138,20 @@ const submit = event => {
                            className = "check-box">
                               <Input
                                   onChange={change}
-                                  name='remember'
+                                  name='terms'
                                   type='checkbox'
+                                  value={signupFormState.terms}
                               />{' '}
                               I agree to the Terms, Privacy Policy and Fees
                           </Label>
+                          <div className='error-msg' style={{ color: 'red' }}>
+                                <div>{errors.terms}</div>
+                            </div>
                       </FormGroup>
 
                   </div>
 
-                  <Button className= "submit-btn">Sign up</Button>
+                  <Button disabled={disabled}  className= "submit-btn">Sign up</Button>
               </Form>
                
               <div className="horizontal-login-bottom-components">
