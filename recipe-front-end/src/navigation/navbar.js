@@ -14,7 +14,7 @@ export default function navbar() {
         <div>
             <Navbar className= "nav-bar">
                 
-                <img className="logo-img"
+                <img className="nav-bar-logo-img"
                     src="https://raw.githubusercontent.com/Secret-Family-Recipes-Cookbook1/Front-End/main/sec-family-rec-book/src/images/recipe.jpg"
                 ></img>
                   <div className= "nav-sub-bar">

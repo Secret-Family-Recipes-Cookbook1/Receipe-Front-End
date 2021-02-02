@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import  './login.css'
 import { Link } from "react-router-dom";
 import { Form,  FormGroup, Label, Input, Button   } from 'reactstrap';
+import * as yup from 'yup';
 
 
 export default function Login() {
+     const [loginFormState , setloginFormState] = useState({
+        email: '', 
+        password: '', 
+        rememberMe: false,
+     })
+
+    const [errors, setErrors] = useState({name: '', password: '', rememberMe: ''})
+    const [disabled, setDisabled] = useState(true)
 
     const change = event => {
         }
@@ -14,7 +23,6 @@ export default function Login() {
         }
 
     return (
- 
         <div className="login-container">
             <img className="header-img"
               src="https://media.istockphoto.com/photos/tasty-pepperoni-pizza-and-cooking-ingredients-tomatoes-basil-on-black-picture-id1083487948"
@@ -83,10 +91,6 @@ export default function Login() {
                      </div>
                 </div>
             </div>
-    
-     
-
         </div>
-       
     )
 }
