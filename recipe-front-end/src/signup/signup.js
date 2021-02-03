@@ -5,7 +5,10 @@ import { Form,  FormGroup, Label, Input, Button   } from 'reactstrap';
 import * as yup from 'yup';
 import schema from '../validation/signupValidation'
 
-export default function Signup() {
+
+
+export default function Signup(props) {
+ 
 
     const [signupFormState, setsignupFormState] = useState({
         firstname: '',
@@ -14,6 +17,7 @@ export default function Signup() {
         password: '',
         terms: false,
     })
+
 
     const [errors, setErrors] = useState({ firstname: '', lastname: '', password: '', terms: '' })
     const [disabled, setDisabled] = useState(true)
@@ -34,6 +38,9 @@ export default function Signup() {
 
     const submit = event => {
         event.preventDefault()
+        props.history.push("/dashboard")
+        // let path = `newPath`; 
+        //  history.push(path);
     }
 
     useEffect(() => {

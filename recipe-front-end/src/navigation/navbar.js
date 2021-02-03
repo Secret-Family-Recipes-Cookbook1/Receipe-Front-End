@@ -29,6 +29,14 @@ export default function navbar() {
                             Add a Recipe
                         </NavItem>
                     </Link>
+
+                    <div className = "space-div"></div>
+
+                    <Link to="/login" className = "nav-link">
+                        <NavItem className = "nav-item">
+                            Log out
+                        </NavItem>
+                    </Link>
                     
                 </div>   
             </Navbar>

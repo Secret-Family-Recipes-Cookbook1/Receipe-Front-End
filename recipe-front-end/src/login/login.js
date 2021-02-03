@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import schema from '../validation/loginValidation'
 
 
-export default function Login() {
+export default function Login(props) {
 
     
      const [loginFormState , setloginFormState] = useState({
@@ -32,6 +32,8 @@ export default function Login() {
         }
 
     const submit = event => {
+        event.preventDefault()
+        props.history.push("/dashboard")
         // let path = `/dashboard`; 
         // history.push(path);
         }
