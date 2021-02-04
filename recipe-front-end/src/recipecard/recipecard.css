@@ -1,0 +1,30 @@
+
+.card{
+padding: 30px;
+margin-top: 10px;
+margin-left: 30px;
+width: 20%;
+background-color: #fff;
+color: slategrey;
+font-family: 'Orbitron', sans-serif;
+margin-bottom: 30px;
+word-wrap: break-word;
+background-clip: border-box;
+border: 1px solid rgba(0, 0, 0, 0.125);
+border-radius: 0.25rem;
+}
+
+.card-img {
+height: 50%;
+width: 50%;
+margin-bottom: 60px;
+vertical-align: middle;
+border-style: none;
+} 
+
+.card-title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
