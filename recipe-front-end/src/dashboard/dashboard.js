@@ -1,12 +1,18 @@
 import React from "react"; 
 import NavBar from "../navigation/navbar"
+import RecipeCard from "../recipecard/recipecard"
 
-export default function Dashboard(props) {
+
+
+export default function Dashboard() {
 
     return (
         <div>
-     <NavBar/>   
-     <p>PULL THE LIST OF RECIPES  HERE</p>
+         <NavBar/>   
+         <div >
+         <RecipeCard/>
+         </div>
+     
      </div>
      )
 }
